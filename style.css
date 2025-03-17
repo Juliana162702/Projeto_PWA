@@ -1,0 +1,311 @@
+/* Variáveis CSS */
+:root {
+    --primary-color: #326c9e;
+    --secondary-color: #333;
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --text-light: #666;
+    --white: #ffffff;
+    --border-radius: 8px;
+    --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos globais */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    text-align: center;
+    color: var(--text-color);
+  }
+  
+  /* Estilos específicos para a página inicial */
+  body.home-page {
+    background-color: var(--white);
+  }
+  
+  /* Navbar */
+  header {
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav .logo {
+    color: var(--white);
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+  }
+  
+  nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: px;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+  }
+
+  /* Conteúdo principal */
+  main {
+    margin-top: 50px;
+    padding: 20px;
+  }
+  
+  /* Estilos para o título */
+  .main-title {
+    color: var(--text-color);
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  /* Estilos para o texto */
+  .main-text {
+    color: var(--text-light);
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  /* Formulários */
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  input,
+  select,
+  textarea,
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  /* Estilos para a câmera e localização */
+
+  #locationContainer {
+    margin-top: 20px;
+  }
+  
+  #camera,
+  #photo,
+  #editablePhoto {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+  }
+  
+  #photoEditor {
+    margin-top: 10px;
+  }
+  
+  #locationStatus {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  
+  /* Popups */
+  #confirmationPopup,
+  #successPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: var(--box-shadow);
+    z-index: 1000;
+    text-align: center;
+  }
+  
+  #confirmationPopup h2,
+  #successPopup h2 {
+    margin-top: 0;
+  }
+  
+  #confirmationPopup p,
+  #successPopup p {
+    margin: 10px 0;
+  }
+  
+  #confirmationPopup button,
+  #successPopup button {
+    margin: 10px 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--white);
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  #confirmationPopup button:hover,
+  #successPopup button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  /* Container dos ícones */
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+  }
+  
+  .icons-container {
+    display: flex; /* Organiza os itens em uma linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 60px; /* Espaçamento entre os ícones */
+    flex-wrap: wrap; /* Permite que os ícones quebrem para a próxima linha em telas menores */
+}
+
+.icon-box {
+    text-align: center; /* Centraliza o conteúdo dentro de cada ícone */
+}
+
+.icon-box img {
+    width: 20px; /* Tamanho do ícone */
+    height: 20px;
+    margin-bottom: 5px; /* Espaçamento entre o ícone e o texto */
+}
+
+  .recuperar-senha {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.recuperar-senha a {
+    color: #666; /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+.recuperar-senha a:hover {
+    text-decoration: underline; /* Sublinhado ao passar o mouse */
+}
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .icon-container {
+      gap: 20px;
+    }
+  
+    .icon i {
+      font-size: 32px;
+    }
+  
+    .main-title {
+      font-size: 28px;
+    }
+  
+    .main-text {
+      font-size: 16px;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    nav ul li a {
+      padding: 8px 12px;
+    }
+  
+    form {
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .icon-container {
+      flex-direction: column;
+      gap: 30px;
+    }
+  
+    .main-title {
+      font-size: 24px;
+    }
+  
+    .main-text {
+      font-size: 14px;
+    }
+  
+    nav .logo {
+      font-size: 20px;
+    }
+  
+    nav ul li a {
+      font-size: 14px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    form {
+      padding: 10px;
+    }
+  
+    .icon i {
+      font-size: 25px;
+    }
+  
+    .icon p {
+      font-size: 12px;
+    }
+  }

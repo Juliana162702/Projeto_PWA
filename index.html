@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixClick</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/icons/icon-48x48.png">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body class="home-page">
+    <header>
+        <nav>
+            <h1 class="logo">FixClick</h1>
+            <ul>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="report.html">Reportar um Problema</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="main-title">Bem-vindo!</h1>
+        <p class="main-text">
+            Reporte problemas da sua cidade em apenas alguns cliques.<br><br>
+            Ajude a tornar seu bairro um lugar melhor.<br><br><br>
+        </p>
+
+        <div class="icons-container">
+            <div class="icon-box">
+                <img src="icons/camera-solid.svg" alt="Câmera">
+                <p>Tire uma Foto</p>
+            </div>
+        
+            <div class="icon-box">
+                <img src="icons/location-dot-solid.svg" alt="Localização">
+                <p>Localize</p>
+            </div>
+        
+            <div class="icon-box">
+                <img src="icons/paper-plane-solid.svg" alt="Enviar">
+                <p>Envie</p>
+            </div>
+        </div>
+    </main>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then((registration) => {
+              console.log('Service Worker registrado com sucesso:', registration);
+            })
+            .catch((error) => {
+              console.log('Falha ao registrar o Service Worker:', error);
+            });
+        }
+      </script>
+</body>
+</html>

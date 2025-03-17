@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Problema</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/icons/icon-48x48.png">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 class="logo">FixClick</h1>
+            <ul>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="report.html">Reportar um Problema</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Reportar Problema</h1>
+    <form id="reportForm" action="#" method="POST">
+        <label for="tipoProblema">Tipo de Problema:</label>
+        <select id="tipoProblema" name="tipoProblema" required>
+            <option value="">Selecione o tipo de problema</option>
+            <option value="iluminacao">Iluminação Pública</option>
+            <option value="lixo">Lixo em Local Inadequado</option>
+            <option value="vazamento_agua">Vazamento de Água</option>
+            <option value="vazamento_esgoto">Vazamento de Esgoto</option>
+            <option value="buraco">Buraco na Via</option>
+            <option value="outros">Outros</option>
+        </select>
+
+        <label for="descricao">Descrição do Problema:</label>
+        <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+        <label for="fotoLink">Link para Foto:</label>
+        <input type="url" id="fotoLink" name="fotoLink" placeholder="Cole o link da foto aqui">
+
+        <div id="locationContainer">
+            <p id="locationStatus">Clique no botão para obter a localização.</p>
+            <button type="button" id="getLocation">Obter Localização</button>
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <a href="index.html">Voltar para a Página Inicial</a>
+    
+    <div id="successPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); z-index: 1000;">
+        <h2>Enviado com Sucesso!</h2>
+        <p>O seu reporte foi enviado com sucesso.</p>
+        <button id="closeSuccessPopup">Fechar</button>
+    </div>
+
+    <script>
+        const locationStatus = document.getElementById('locationStatus');
+        const getLocationButton = document.getElementById('getLocation');
+        const latitudeInput = document.getElementById('latitude');
+        const longitudeInput = document.getElementById('longitude');
+
+        getLocationButton.addEventListener('click', function () {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        latitudeInput.value = latitude;
+                        longitudeInput.value = longitude;
+                        locationStatus.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+                    },
+                    function (error) {
+                        locationStatus.textContent = 'Erro ao obter localização: ' + error.message;
+                    }
+                );
+            } else {
+                locationStatus.textContent = 'Geolocalização não é suportada pelo seu navegador.';
+            }
+        });
+
+        const reportForm = document.getElementById('reportForm');
+        const successPopup = document.getElementById('successPopup');
+        const closeSuccessPopup = document.getElementById('closeSuccessPopup');
+
+        reportForm.addEventListener('submit', function (e) {
+            e.preventDefault(); 
+
+            setTimeout(function () {
+                successPopup.style.display = 'block';
+            }, 1000);
+        });
+
+        closeSuccessPopup.addEventListener('click', function () {
+            successPopup.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
